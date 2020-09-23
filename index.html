@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="c4.js"></script>
+    <title>Connect Four</title>
+  </head>
+  <body>
+    <div class="fullheight">
+      <div class="container has-text-centered">
+        <h1 class="title">Connect Four</h1>
+        <h2 id="choose-title">Choose Your Game Mode :</h2>
+        <div id="choose-mode">
+          <span>Game Mode: </span>
+          <input type="radio" name="mode" value="pvp" id="mode-1" /> Player Vs
+          Player
+          <input type="radio" name="mode" value="pvc" id="mode-2" /> Player Vs
+          AI <input type="radio" name="mode" value="pvr" id="mode-3" /> Player
+          Vs Random
+          <input type="radio" name="mode" value="cvc" id="mode-4" /> Random Vs
+          AI
+        </div>
+        <div id="level">
+          <span>Difficulty: </span>
+          <input type="radio" name="diff" value="2" /> Easy
+          <input type="radio" name="diff" value="5" /> Skynet
+        </div>
+        <div id="start">
+          <button type="button" id="start-button" onclick="start()">
+            Start
+          </button>
+        </div>
+        <div class="next">
+          <button id="new-button" class="hidden">New Game</button>
+          <button id="next" class="hidden">Next</button>
+        </div>
+        <div id="legend" class="hidden">
+          <p>Red is Random AI</p>
+          <p>Yellow is Super Intelligent AI</p>
+        </div>
+        <div id="win-alert" class="alert"></div>
+        <div id="board" class="cols hidden">
+          <div class="col" data-col-id="0">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+          <div class="col" data-col-id="1">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+          <div class="col" data-col-id="2">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+          <div class="col" data-col-id="3">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+          <div class="col" data-col-id="4">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+          <div class="col" data-col-id="5">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+          <div class="col" data-col-id="6">
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+            <div class="cell"><div class="dot"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    $('#start-button').click(function() {
+      $('.cols').toggleClass('hidden')
+      $('#choose-mode').addClass('hidden')
+      $('#choose-title').addClass('hidden')
+      $('#level').addClass('hidden')
+      $('#start').addClass('hidden')
+      $('#new-button').toggleClass('hidden')
+    })
+
+    $('#new-button').click(function() {
+      location.reload()
+    })
+  </script>
+</html>
